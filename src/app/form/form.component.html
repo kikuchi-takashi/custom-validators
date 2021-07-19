@@ -1,0 +1,59 @@
+<form [formGroup]="formGroup">
+  <mat-form-field>
+    <mat-label>id1</mat-label>
+    <input matInput type="text" placeholder="ABC" formControlName="id1" />
+    <mat-error *ngIf="formGroup.get('id1')?.getError('required')"
+      >required</mat-error
+    >
+    <mat-error *ngIf="formGroup.get('id1')?.getError('upperCase')"
+      >upperCase</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>id2</mat-label>
+    <input
+      matInput
+      type="text"
+      placeholder="ABC"
+      formControlName="id2"
+      appUpperCase
+    />
+    <mat-error *ngIf="formGroup.get('id2')?.getError('required')"
+      >required</mat-error
+    >
+    <mat-error *ngIf="formGroup.get('id2')?.getError('upperCase')"
+      >upperCase</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>name1</mat-label>
+    <input
+      matInput
+      type="text"
+      placeholder="五十嵐五十郎"
+      formControlName="name1"
+    />
+    <mat-error *ngIf="formGroup.get('name1')?.getError('required')"
+      >required</mat-error
+    >
+    <mat-error *ngIf="formGroup.get('name1')?.getError('forbiddenName')"
+      >forbiddenName</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>name2</mat-label>
+    <input
+      matInput
+      type="text"
+      placeholder="五十嵐五十郎"
+      formControlName="name2"
+      appForbiddenName="田中"
+    />
+    <mat-error *ngIf="formGroup.get('name2')?.getError('required')"
+      >required</mat-error
+    >
+    <mat-error *ngIf="formGroup.get('name2')?.getError('forbiddenName')"
+      >forbiddenName</mat-error
+    >
+  </mat-form-field>
+</form>
